@@ -1,6 +1,7 @@
 from tkinter import *
 from playsound import playsound as ps
 
+# Basic body-building :
 root = Tk()
 root.tk_setPalette("#E5B8F4")
 root.title("Calculator")
@@ -8,9 +9,12 @@ root.iconbitmap("files/logo.ico")
 root.geometry("289x420")
 root.maxsize(289,420)
 root.minsize(289,420)
+
+# Screen to show the entered numbers :
 e = Entry(root, width=45, borderwidth=8)
 e.grid(row=0,column=0,columnspan=3)
 
+# Some important funcs :
 def num(number):
     ps(f"files/{number%6}.mp3",block=False)
     current = e.get()
@@ -82,7 +86,11 @@ def dflt():
     clrcolor = "#C147E9"
     global fcolor
     fcolor = "black"
+
+# Calling dark() so that calculator opens in dark mode.
 dark()
+
+# Creating Buttons :
 ext = Button(root, text="EXIT", padx=32, pady=6, command=exit, fg=fcolor, bg="red", borderwidth=2)
 num1 = Button(root, text="1", padx=40, pady=20, command=lambda :num(1), fg=fcolor, bg=bcolor, borderwidth=2)
 num2 = Button(root, text="2", padx=40, pady=20, command=lambda :num(2), fg=fcolor, bg=bcolor, borderwidth=2)
@@ -103,6 +111,7 @@ clear = Button(root, text="Clear", padx=126, pady=6, command=clr, fg=fcolor, bg=
 drk = Button(root, text="Dark Space", padx=16, pady=6, command=dark, fg="white", bg="black", borderwidth=2)
 de = Button(root, text="Default", padx=24, pady=6, command=dflt, fg="white", bg=bcolor, borderwidth=2)
 
+# Postioning :
 ext.grid(row=7,column=2,columnspan=1)
 num0.grid(row=4,column=0)
 num1.grid(row=3,column=0)
